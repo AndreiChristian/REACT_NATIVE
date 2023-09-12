@@ -12,6 +12,7 @@ const GuestProfile = ({ navigation }: { navigation: any }) => {
       <Button title="Register" onPress={() => navigation.navigate("Register")} />
       <Text >Sau</Text>
       <Button title="Logati-va folosing email" onPress={() => navigation.navigate("Login")} />
+      <Button title="Vedeti Meniu" onPress={() => navigation.navigate("Meniu")} />
     </View>
   )
 }

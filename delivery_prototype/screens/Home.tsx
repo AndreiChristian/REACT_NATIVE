@@ -1,4 +1,3 @@
-import { StyleSheet } from "react-native";
 import ScreenContainer from "../components/Layoout/ScreenContainer";
 import HeaderOne from "../components/Shared/Text/HeaderOne";
 import HeaderTwo from "../components/Shared/Text/HeaderTwo";

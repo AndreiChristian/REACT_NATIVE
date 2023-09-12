@@ -1,4 +1,3 @@
-import { Button } from "react-native";
 import ScreenContainer from "../components/Layoout/ScreenContainer";
 import AuthenticatedProfile from "../components/Profile/Authenticated/AuthenicatedProfile";
 import GuestProfile from "../components/Profile/Guest/GuestProfile";
@@ -9,7 +8,7 @@ const user = {
   phoneNumber: "0722576199"
 }
 
-const authenticated = true
+const authenticated = false
 
 export default function ProfileScreen({ navigation }: { navigation: any }) {
   return (
