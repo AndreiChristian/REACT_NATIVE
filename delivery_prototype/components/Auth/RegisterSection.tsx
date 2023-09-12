@@ -1,4 +1,4 @@
-import { Button, StyleSheet, Text, View } from "react-native"
+import { Button, Pressable, StyleSheet, Text, View } from "react-native"
 import HeaderOne from "../Shared/Text/HeaderOne"
 import { TextInput } from "react-native-gesture-handler"
 import Colors from "../../constants/Colors"
@@ -11,8 +11,16 @@ const RegisterSection = () => {
   const [nameWasTouched, setNameWasTouched] = useState(false)
 
   const [phoneNumber, setPhoneNumber] = useState("")
+  const [phoneNumberWasTouched, setPhoneNumberWasTouched] = useState(false)
+
+  const [email, setEmail] = useState("")
+  const [emailWasTouched, setEmailWasTouched] = useState(false)
+
   const [password, setPassword] = useState("")
+  const [passwordWasTouched, setPasswordWasTouched] = useState(false)
+
   const [confirmationPassword, setConfirmationPassword] = useState("")
+  const [confirmationPasswordWasTouched, setConfirmationPasswordWasTouched] = useState(false)
 
   function handleSubmit() {
     console.log("I am pressed")
@@ -23,10 +31,29 @@ const RegisterSection = () => {
     }
   }
 
-  function handleNameChange(text: string) {
+  function onNameChange(text: string) {
     setNameWasTouched(true)
     setName(text)
+  }
 
+  function onEmailChange(text: string) {
+    setEmailWasTouched(true)
+    setEmail(text)
+  }
+
+  function onPhoneNumberChange(text: string) {
+    setPhoneNumberWasTouched(true)
+    setPhoneNumber(text)
+  }
+
+  function onPasswordWasTouched(text: string) {
+    setPasswordWasTouched(true)
+    setPassword(text)
+  }
+
+  function onConfirmationPasswordWasTouched(text: string) {
+    setConfirmationPasswordWasTouched(true)
+    setConfirmationPassword(text)
   }
 
   return (
@@ -36,9 +63,33 @@ const RegisterSection = () => {
       <View style={styles.formSection} >
         <View style={styles.inputSection} >
           <Text style={[styles.label, (!name && nameWasTouched) && styles.errorStyling]} >Nume</Text>
-          <TextInput style={styles.input} placeholder="ion " onChangeText={text => handleNameChange(text)} defaultValue={name} />
+          <TextInput style={styles.input} onChangeText={text => onNameChange(text)} defaultValue={name} />
         </View>
         {(!name && nameWasTouched) && <Animated.Text entering={FadeIn} style={styles.error} >Numele nu poate fi gol.</Animated.Text>}
+      </View>
+
+      <View style={styles.formSection} >
+        <View style={styles.inputSection} >
+          <Text style={[styles.label, (!email && emailWasTouched) && styles.errorStyling]} >Email</Text>
+          <TextInput style={styles.input} keyboardType="email-address" onChangeText={text => onEmailChange(text)} />
+        </View>
+        {(!email && emailWasTouched) && <Animated.Text entering={FadeIn} style={styles.error} >Numele nu poate fi gol.</Animated.Text>}
+      </View>
+
+      <View style={styles.formSection} >
+        <View style={styles.inputSection} >
+          <Text style={[styles.label, (!phoneNumber && phoneNumberWasTouched) && styles.errorStyling]} >Telefon</Text>
+          <TextInput style={styles.input} keyboardType="phone-pad" onChangeText={text => onPhoneNumberChange(text)} defaultValue={phoneNumber} />
+        </View>
+        {(!phoneNumber && phoneNumberWasTouched) && <Animated.Text entering={FadeIn} style={styles.error} >Numele nu poate fi gol.</Animated.Text>}
+      </View>
+
+      <View style={styles.formSection} >
+        <View style={styles.inputSection} >
+          <Text style={[styles.label, (!password && passwordWasTouched) && styles.errorStyling]} >Parola</Text>
+          <TextInput secureTextEntry={true} style={styles.input} onChangeText={text => onPasswordWasTouched(text)} defaultValue={email} />
+        </View>
+        {(!password && passwordWasTouched) && <Animated.Text entering={FadeIn} style={styles.error} >Parola nu poate fi goala.</Animated.Text>}
       </View>
 
       <Button title="Faceti cont" onPress={handleSubmit} />
