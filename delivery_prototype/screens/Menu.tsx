@@ -4,7 +4,7 @@ import HeaderOne from "../components/Shared/Text/HeaderOne";
 export default function MenuScreen() {
   return (
     <ScreenContainer>
-      <HeaderOne text="Menu" />
+      <HeaderOne text="Meniu" />
     </ScreenContainer>
   )
 }

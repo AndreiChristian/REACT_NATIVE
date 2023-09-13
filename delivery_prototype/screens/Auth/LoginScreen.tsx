@@ -1,11 +1,9 @@
-import { Text, View } from "react-native"
+import LoginSection from "../../components/Auth/LoginSection"
 import ModalContainer from "../../components/Layoout/ModalContainer"
 
 const LoginScreen = ({ navigation }: { navigation: any }) => {
   return <ModalContainer navigation={navigation} >
-    <View>
-      <Text>Login</Text>
-    </View>
+    <LoginSection />
   </ModalContainer>
 }
 

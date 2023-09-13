@@ -44,7 +44,7 @@ export default function TabsNavigation() {
           shadowRadius: 4,
           elevation: 5
         },
-        headerTitle: "La Taverna"
+        headerTitle: "Taverna"
       }}
     >
       <Tab.Screen

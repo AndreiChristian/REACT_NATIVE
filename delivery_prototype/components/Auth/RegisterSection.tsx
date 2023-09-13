@@ -1,4 +1,4 @@
-import { Button, Pressable, StyleSheet, Text, View } from "react-native"
+import { Button, StyleSheet, Text, View } from "react-native"
 import HeaderOne from "../Shared/Text/HeaderOne"
 import { TextInput } from "react-native-gesture-handler"
 import Colors from "../../constants/Colors"
