@@ -3,3 +3,11 @@ export interface MenuCategory {
   name: string,
   imagePath: string
 }
+
+export interface MenuItem {
+  id: number,
+  categoryId: number,
+  name: string,
+  description: string,
+  price: number
+}
