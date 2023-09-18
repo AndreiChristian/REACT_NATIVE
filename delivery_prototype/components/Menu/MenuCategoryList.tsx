@@ -2,7 +2,6 @@ import { Image, Pressable, ScrollView, StyleSheet, Text, View } from "react-nati
 import { categories } from "../../dummyData/Categories"
 import Colors from "../../constants/Colors"
 import ScreenContainer from "../Layoout/ScreenContainer"
-import HeaderTwo from "../Shared/Text/HeaderTwo"
 import { ReactNode } from "react"
 import { useNavigation } from "@react-navigation/native"
 
@@ -13,7 +12,7 @@ interface Props {
 
 export default function MenuCategoryList({ children }: Props) {
 
-  const navigation = useNavigation()
+  const navigation = useNavigation<any>()
 
   function handleNavigate(id: number) {
     navigation.navigate("Category", { categoryId: id })
@@ -21,7 +20,6 @@ export default function MenuCategoryList({ children }: Props) {
 
   return (
     <ScreenContainer>
-      <HeaderTwo text="Categorii" />
       <ScrollView style={styles.scrollContainer} horizontal={true} showsHorizontalScrollIndicator={false} >
         {categories.map((c) => {
           return (

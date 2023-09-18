@@ -1,34 +1,29 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import { MenuItem, } from "../../dummyData/models";
 import Animated, { FadeInLeft } from "react-native-reanimated";
 import Colors from "../../constants/Colors";
 import { Swipeable } from "react-native-gesture-handler";
 import { useRef } from "react";
+import renderRightAction from "./SwipableActions/Right";
+import renderLeftAction from "./SwipableActions/Left";
+import { useNavigation } from "@react-navigation/native";
 
 
-const renderRightAction = (text: string, color: string) => {
-  return (
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: color,
-        justifyContent: 'center',
-        alignItems: "flex-end",
-        paddingHorizontal: 20,
-        borderRadius: 10,
-      }}
-    >
-      <Text style={{ color: 'white', }}>{text}</Text>
-    </View>
-  );
-};
-export default function MenuListItem({ item }: { item: MenuItem }) {
+export default function MenuListItem({ item, }: { item: MenuItem }) {
 
   const swipableRef = useRef<Swipeable>(null)
+  const navigation = useNavigation<any>()
+
+  function handleNavigate() {
+    navigation.navigate("Item", { itemId: item.id })
+  }
 
 
   return (
     <Swipeable
+      friction={2}
+      rightThreshold={50}
+      leftThreshold={50}
       ref={swipableRef}
       containerStyle={{
         flex: 1,
@@ -37,33 +32,40 @@ export default function MenuListItem({ item }: { item: MenuItem }) {
       childrenContainerStyle={{
         backgroundColor: Colors.background
       }}
-      renderLeftActions={() => renderRightAction("Add to favorites", Colors.secondary)}
-      renderRightActions={() => renderRightAction("Add to Cart", Colors.success)}
+      renderLeftActions={() => renderLeftAction()}
+      renderRightActions={() => renderRightAction()}
       onSwipeableOpen={(direction) => {
-        console.log(direction)
-        console.log(item)
+        console.log("Test")
+        if (direction == "left") {
+          console.log("Add items to favorites")
+        } else {
+          console.log("Add items to cart")
+        }
         if (swipableRef.current) {
           swipableRef.current.close()
         }
       }
       }
-      onSwipeableClose={() => console.log("Close")}
     >
-      <Animated.View entering={FadeInLeft} style={styles.container} >
-        <View style={styles.info}>
-          <Text style={styles.title} >{item.name}</Text>
-          <Text style={styles.subtitle} >{item.price} roni </Text>
-        </View>
-        <Image
-          style={styles.image}
-          source={{
-            uri: 'https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg'
-          }}
-          width={100}
-          height={100}
-        />
+      <Pressable
+        onPress={handleNavigate}
+      >
+        <Animated.View entering={FadeInLeft} style={styles.container} >
+          <View style={styles.info}>
+            <Text style={styles.title} >{item.name}</Text>
+            <Text style={styles.subtitle} >{item.price} roni </Text>
+          </View>
+          <Image
+            style={styles.image}
+            source={{
+              uri: 'https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg'
+            }}
+            width={100}
+            height={100}
+          />
 
-      </Animated.View>
+        </Animated.View>
+      </Pressable>
     </Swipeable>
   )
 }
@@ -75,7 +77,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     marginVertical: 10,
     backgroundColor: Colors.background,
-    paddingRight: 10
+    paddingHorizontal: 10
   },
   info: {
   },
