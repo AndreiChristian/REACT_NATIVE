@@ -33,6 +33,7 @@ export default function TabsNavigation() {
           shadowRadius: 4,
           elevation: 5
         },
+        tabBarHideOnKeyboard: true,
         tabBarStyle: {
           marginTop: 10,
           opacity: 0.9,
@@ -44,8 +45,9 @@ export default function TabsNavigation() {
           shadowRadius: 4,
           elevation: 5
         },
-        headerTitle: "Taverna"
+        headerTitle: "Taverna",
       }}
+
     >
       <Tab.Screen
         options={{

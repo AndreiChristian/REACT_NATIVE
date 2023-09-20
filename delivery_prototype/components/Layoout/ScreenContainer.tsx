@@ -8,7 +8,7 @@ interface Props {
   gap?: number
 }
 
-const ScreenContainer: React.FC<Props> = ({ children, padding = 20, gap = 20 }) => {
+const ScreenContainer: React.FC<Props> = ({ children, padding = 10, gap = 20 }) => {
 
   return <View style={[styles.container, { padding, gap }]}>
     {children}

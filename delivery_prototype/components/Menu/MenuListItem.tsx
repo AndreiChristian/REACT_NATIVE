@@ -55,13 +55,14 @@ export default function MenuListItem({ item, }: { item: MenuItem }) {
             <Text style={styles.title} >{item.name}</Text>
             <Text style={styles.subtitle} >{item.price} roni </Text>
           </View>
-          <Image
+          <Animated.Image
             style={styles.image}
             source={{
               uri: 'https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg'
             }}
-            width={100}
-            height={100}
+            width={110}
+            height={110}
+            sharedTransitionTag="tag"
           />
 
         </Animated.View>

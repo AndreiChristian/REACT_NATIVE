@@ -1,7 +1,7 @@
-import { createStackNavigator } from '@react-navigation/stack';
 import MenuCategoryScreen from '../screens/Menu/Category';
 import MainMenuScreen from '../screens/Menu/MainMenu';
 import MenuItem from '../screens/Menu/Item';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 export type MenuStackParamList = {
   MainMenu: undefined,
@@ -9,7 +9,7 @@ export type MenuStackParamList = {
   Item: { itemId: number }
 }
 
-const Stack = createStackNavigator<MenuStackParamList>();
+const Stack = createNativeStackNavigator<MenuStackParamList>();
 
 function MenuStack() {
   return (
@@ -19,8 +19,7 @@ function MenuStack() {
       }}
     >
       <Stack.Screen name='MainMenu' component={MainMenuScreen} />
-      <Stack.Screen name="Category" options={{ animationEnabled: false }} component={MenuCategoryScreen} />
-      <Stack.Screen name='Item' component={MenuItem} />
+      <Stack.Screen name="Category" component={MenuCategoryScreen} />
     </Stack.Navigator>
   );
 }
