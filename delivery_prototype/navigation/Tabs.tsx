@@ -6,6 +6,8 @@ import CartScreen from '../screens/Cart';
 import ProfileScreen from '../screens/Profile';
 import { Ionicons } from '@expo/vector-icons';
 import Colors from '../constants/Colors';
+import { useSelector } from 'react-redux';
+import { RootState } from '../store/store';
 
 const Tab = createBottomTabNavigator();
 
@@ -18,6 +20,9 @@ interface TabBarIconProps {
 const ICON_SIZE = 28
 
 export default function TabsNavigation() {
+
+  const cartItems = useSelector((state: RootState) => state.cart.items)
+
   return (
     <Tab.Navigator
       screenOptions={{
@@ -71,6 +76,11 @@ export default function TabsNavigation() {
         options={{
           tabBarIcon: ({ color }: TabBarIconProps) => {
             return <Ionicons color={color} size={ICON_SIZE} name='cart-outline' />
+          },
+          tabBarBadge: cartItems.length === 0 ? undefined : cartItems.length,
+          tabBarBadgeStyle: {
+            backgroundColor: Colors.accent,
+            color: Colors.primaryText
           }
         }}
       />

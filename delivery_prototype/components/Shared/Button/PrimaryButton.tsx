@@ -7,10 +7,14 @@ import { TouchableOpacity } from "react-native-gesture-handler"
 const PrimaryButton: React.FC<ButtonProps> = ({
   text = "PlaceHolder",
   onPress = () => { },
-  onLongPress = () => { } }) => {
+  onLongPress = () => { },
+  disabled = false
+},
+) => {
   return <TouchableOpacity
     onPress={onPress}
     onLongPress={onLongPress}
+    activeOpacity={disabled ? 1 : 0.2}
     style={
       {
         backgroundColor: Colors.primaryText,

@@ -11,7 +11,7 @@ export default function HomeScreen() {
       <HeaderOne text="Home" />
       <HeaderTwo text="Subtitle" />
       <Paragraph text="Dummy Paragrahp" />
-      <PrimaryButton text="Hello" />
+      <PrimaryButton text="I am disabled" disabled={true} />
       <SecondaryButton text="Secondary" />
     </ScreenContainer>
   )

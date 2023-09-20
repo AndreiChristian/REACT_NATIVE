@@ -3,5 +3,5 @@ export interface ButtonProps {
   text: string,
   onPress?: () => void,
   onLongPress?: () => void,
-
+  disabled?: boolean
 }

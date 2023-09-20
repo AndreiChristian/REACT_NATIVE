@@ -11,3 +11,9 @@ export interface MenuItem {
   description: string,
   price: number
 }
+
+export interface CartItem {
+  item: MenuItem,
+  quantity: number,
+  mentions: string
+}

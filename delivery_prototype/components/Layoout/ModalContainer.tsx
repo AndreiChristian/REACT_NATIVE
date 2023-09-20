@@ -15,7 +15,7 @@ const ModalContainer: React.FC<Props> = ({ children, padding = 20, gap = 20, nav
   return <View style={{ flex: 1 }} >
     <View style={styles.header} >
       <Pressable style={styles.headerButton} onPress={() => navigation.goBack()}>
-        <Ionicons name='chevron-back-outline' size={25} color={Colors.info} />
+        <Ionicons name='chevron-back-outline' size={25} color={Colors.secondaryText} />
         <Text style={styles.button}>Inapoi</Text>
       </Pressable>
     </View>
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
   },
   button: {
     fontSize: 20,
-    color: Colors.info,
+    color: Colors.secondaryText,
     fontWeight: "bold"
   }
 })
