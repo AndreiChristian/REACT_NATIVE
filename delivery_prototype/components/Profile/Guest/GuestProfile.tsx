@@ -1,4 +1,4 @@
-import { Button, StyleSheet, Text, View } from "react-native"
+import { StyleSheet, View } from "react-native"
 import SecondaryButton from "../../Shared/Button/SecondaryButton"
 import HeaderOne from "../../Shared/Text/HeaderOne"
 import HeaderTwo from "../../Shared/Text/HeaderTwo"
