@@ -24,7 +24,8 @@ export default function MenuCategroyItem({ item }: Props) {
       <Image
         style={{
           width: screenWidth - 40,
-          height: 110
+          height: 110,
+          borderRadius: 10
         }}
         source={{
           uri: 'https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg'

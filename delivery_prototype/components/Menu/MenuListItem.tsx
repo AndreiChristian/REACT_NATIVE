@@ -1,4 +1,4 @@
-import { Image, Pressable, StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 import { MenuItem, } from "../../dummyData/models";
 import Animated, { FadeInLeft } from "react-native-reanimated";
 import Colors from "../../constants/Colors";
@@ -7,6 +7,7 @@ import { useRef } from "react";
 import renderRightAction from "./SwipableActions/Right";
 import renderLeftAction from "./SwipableActions/Left";
 import { useNavigation } from "@react-navigation/native";
+import { Image } from "expo-image";
 
 
 export default function MenuListItem({ item, }: { item: MenuItem }) {
@@ -55,14 +56,14 @@ export default function MenuListItem({ item, }: { item: MenuItem }) {
             <Text style={styles.title} >{item.name}</Text>
             <Text style={styles.subtitle} >{item.price} roni </Text>
           </View>
-          <Animated.Image
-            style={styles.image}
+          <Image
+            style={[styles.image, {
+              width: 110,
+              height: 110
+            }]}
             source={{
               uri: 'https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg'
             }}
-            width={110}
-            height={110}
-            sharedTransitionTag="tag"
           />
 
         </Animated.View>

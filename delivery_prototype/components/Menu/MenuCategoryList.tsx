@@ -1,9 +1,10 @@
-import { Image, Pressable, ScrollView, StyleSheet, Text, View } from "react-native"
+import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native"
 import { categories } from "../../dummyData/Categories"
 import Colors from "../../constants/Colors"
 import ScreenContainer from "../Layoout/ScreenContainer"
 import { ReactNode } from "react"
 import { useNavigation } from "@react-navigation/native"
+import { Image } from "expo-image"
 
 interface Props {
   children: ReactNode
@@ -26,12 +27,13 @@ export default function MenuCategoryList({ children }: Props) {
             <Pressable onPress={() => handleNavigate(c.id)} key={c.id}>
               <View style={styles.listItem}>
                 <Image
-                  style={styles.image}
+                  style={[styles.image, {
+                    width: 90,
+                    height: 90
+                  }]}
                   source={{
                     uri: 'https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg'
                   }}
-                  width={90}
-                  height={90}
                 />
                 <Text style={styles.label} >{c.name}</Text>
               </View>
