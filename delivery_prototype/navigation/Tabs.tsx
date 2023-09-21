@@ -81,7 +81,7 @@ export default function TabsNavigation() {
           tabBarBadgeStyle: {
             backgroundColor: Colors.accent,
             color: Colors.primaryText
-          }
+          },
         }}
       />
       <Tab.Screen name="Profil" component={ProfileScreen}

@@ -3,6 +3,7 @@ import TabsNavigation from "./Tabs";
 import LoginScreen from "../screens/Auth/LoginScreen";
 import RegisterScreen from "../screens/Auth/RegisterScreen";
 import MenuItem from "../screens/Menu/Item";
+import CartProductsScreen from "../screens/Cart/CartProducts";
 
 const Stack = createStackNavigator()
 
@@ -18,6 +19,7 @@ export default function RootStack() {
       <Stack.Screen name="Login" component={LoginScreen} options={{ presentation: "modal" }} />
       <Stack.Screen name="Register" component={RegisterScreen} options={{ presentation: "modal" }} />
       <Stack.Screen name="Item" component={MenuItem} options={{ presentation: "modal" }} />
+      <Stack.Screen name="ProductCart" component={CartProductsScreen} options={{ presentation: "modal" }} />
     </Stack.Navigator>
   )
 
